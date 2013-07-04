@@ -2,13 +2,16 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
     <metadata minClientVersion="2.6">
         <id>WorldWideWat.SpriteThumbs</id>
-        <version>0.1.0</version>
+        <version>0.1.1</version>
         <authors>Mark Carpenter</authors>
         <licenseUrl>http://opensource.org/licenses/mit-license.php</licenseUrl>
         <projectUrl>https://github.com/worldwidewat/SpriteThumbs</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Converts a collection of images into a single sprite for efficient display as thumbnails for use in web applications.</description>
         <language />
+        <dependencies>
+            <dependency id="WebActivatorEx" version="2.0.0" />
+        </dependencies>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" targetFramework="" />
             <frameworkAssembly assemblyName="System.Core" targetFramework="" />
@@ -17,6 +20,7 @@
         </frameworkAssemblies>
     </metadata>
     <files>
+        <file src="content\App_Start\SpriteThumbsConfig.cs.pp" target="content\App_Start\SpriteThumbsConfig.cs.pp" />
         <file src="content\web.config.install.xdt" target="content\web.config.install.xdt" />
         <file src="content\web.config.uninstall.xdt" target="content\web.config.uninstall.xdt" />
         <file src="..\SpriteThumbs\bin\Release\WorldWideWat.SpriteThumbs.dll" target="lib\WorldWideWat.SpriteThumbs.dll" />

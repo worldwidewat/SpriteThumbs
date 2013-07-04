@@ -60,10 +60,9 @@ namespace WorldWideWat.SpriteThumbs
 
         public string GetResourceHash()
         {
-
             var count = RawImages.Count;
             var lastModified = RawImages.Max(i => i.LastWriteTime);
-            var input = string.Format("{0}-{1}", count, lastModified);
+            var input = string.Format("{0}-{1}-{2}-{3}-{4}-{5}", count, lastModified, ThumbsPerRow, ThumbWidth, ThumbHeight, ImageQualityPercent);
             var algorithm = MD5.Create();
             var hash = algorithm.ComputeHash(Encoding.UTF8.GetBytes(input));
 
@@ -121,18 +120,6 @@ namespace WorldWideWat.SpriteThumbs
         {
             SpriteFileName = spriteFileName;
             StylesheetFileName = stylesheetFileName;
-        }
-
-        public void AddRawImages<T>(IEnumerable<T> collection, Func<T, string> idSelector, Func<T, string> fullFilePathSelector)
-        {
-            foreach (var item in collection)
-            {
-                RawImages.Add(new RawImage
-                {
-                    Id = idSelector(item),
-                    FullFilePath = fullFilePathSelector(item)
-                });
-            }
         }
 
         public static string GetThumbClassName()
